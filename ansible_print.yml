@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: true
+
+  tasks:
+   - name: "List of Ansible facts"
+     debug:
+       msg: "looped item --> {{ item }}"
+     loop:
+     - "{{ ansible_architecture }}"
+     - "{{ ansible_bios_date }}"
+     - "{{ ansible_bios_version }}"
+

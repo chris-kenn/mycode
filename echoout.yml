@@ -1,0 +1,8 @@
+---
+- name: Echo out
+  hosts: localhost
+
+  tasks:
+   - name: Import the echotask role
+     import_role:
+       name: echotask
