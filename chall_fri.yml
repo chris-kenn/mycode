@@ -1,0 +1,18 @@
+---
+- name: Print lat and long of ISS
+  hosts: localhost
+
+  vars:
+    info: "{{ lookup('url', 'http://api.open-notify.org/iss-now.json') }} "
+
+  tasks:
+  - name: Print info
+    debug:
+      msg: "Info: {{ item }}"
+    loop: 
+      - "{{ info.iss_position.latitude }}"
+      - "{{ info.iss_position.longitude }}"
+        
+  - name: print time
+    debug:
+      msg: "Current time is {{ ansible_date_time.time }}"
